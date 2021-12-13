@@ -1,0 +1,68 @@
+Sobald sie in der VM für Übungen angekommen sind haben sie eine Konsole
+vor sich!
+-Anmelden mit den Moodle Login Daten.
+-Login mit dem Passwort : Pa$$w0rd
+
+Jetzt wird es Zeit für den ersten Befehl:
+cp <von> <nach>: kurzform von "Copy" ermöglicht es ihnen das an einem Pfad 
+befindliche Objekt an einer anderen Stelle zu duplizieren.
+
+Nutzen sie nun den Copy Befehl um von:
+/home/praktikum/HS_Versuche/hs_15/makefile
+nach:
+/home/praktikum/Documents/
+zu kopieren.
+
+Betrachten sie das Ergenis mit dem Befehl tree.
+tree <pfad> gibt den Verzeichnisbaum von einem gewünschten Pfad aus.
+Wird kein pfad angegebe, wird das aktuelle verwendet.
+
+Das aktuelle Verzeichnis lässt sich mit dem Befehl pwd ermitteln, steht
+aber auch links neben der Eingabe Zeile.
+
+#Der HS_Versuche Ordner ist von nun an Tabu und alles was sie 
+#an Dateien erstellen hat in Documents stattzufinden.
+
+Navigieren sie jetzt in den Documents Ordner mit dem cd Befehl.
+cd <pfad> steht für "Change Directory" und bekommt als argument einen Pfad.
+Es gibt relative und absolute Pfade. Meist werden realtive Pfade verwendet.
+In diesem fall sollten sie in dem Verzeichnis /home/praktikum starten, 
+von da aus ist Documents mit dem realtiven Pfad /Documents zu erreichen.
+Abslute Pfade gehen vom Wurzelverzeichnis aus. 
+Ein Beispiel finden sie oben bei dem cp Befehl.
+
+Hier werden nun alle zukünftigen Projekte erstellt.
+Schauen sie sich den Inhalt des Ordners mit dem Befehl ls an.
+ls kurzform von "list" zeigt den Ordnerinhalt an.
+
+#Wollen sie mehr über einen Befehl erfahren tippen sie diesen gefolgt
+#von einem Leerzeichen und --help ein und ihnen wird eine Anleitung angezeigt.
+
+Sofern alles voherige funktionier hat sollten sie nun als einzige 
+Datei das Makefile angezeigt bekommen. Ist dies nicht der fall:
+cp /home/praktikum/HS_Versuche/hs_15/makefile /home/praktikum/Documents/
+behebt dieses Problem.
+
+Einen kopierten Befehl, können sie mit SHIFT + STRG + V in die Konsole einfügen.
+
+Nun erstellen wir den ersten Ordner mit mkdir.
+mkdir <pfad> erstellt einen leeren Ordner an gewünschtem Pfad.
+In diesem Fall sind wir schon am richtigen Pfad und Müssen nur noch den 
+Namen des Ordners angeben. In diesem Fall "tut1".
+Mit ls den Erfolg der Aktion prüfen und mit cd in den Ordner wechseln.
+
+Von hier Kopieren wir nun das Makefile aus dem Oberordner Documents den man
+im Unterordner einfach über ../ erreichen kann in das aktuelle Verzeichnis
+was über ./ zu erreichen ist.
+
+Mit dem Texteditor nano kann man nun ein Programm schreiben.
+#Nano Tutorial im Moodle unter Starterkit!
+
+Unser erstes Programm soll ein Taschenrechner sein.
+
+Erstellen sie Mit:
+nano calc.c
+ein neues c Programm und kopieren sie den Inhalt aus der gleichnamigen Datei aus
+dem Moodle kurs in dieses.
+
+Wir sehen uns dort!
