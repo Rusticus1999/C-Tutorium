@@ -12,7 +12,7 @@ int removeIndex(int);
 int removeData(int);
 void printIndex(int);
 void printNode(struct node *);
-
+void cleanup();
 
 //Knoten
 struct node{
@@ -25,9 +25,12 @@ struct node *Head, *Z;
 
 //Main
 int main(int argc, char* argv[]){
+	printf("Aufgaben\n 1)Die fehlenden Methoden zu implementieren. \n 2)Die Liste umdrehen und ausgeben. \n3)Die Liste bereinigen mit dem eigenen Namen füllen und den Namen alphabestisch sortieren und ausgeben.\n");
+
 	ListInit();
-	printf("Aufgabe ist es die fehlenden Methoden zu implementieren und sinnvoll per Konsolenausgabe zu testen!\n");
 	
+	
+	cleanup();
 return 0;
 }
 
@@ -45,9 +48,10 @@ void ListInit(){
 	Head->data = -1;
 	Z->data = -2;
 	//Testliste konstruieren
-	char wort[5] = "Liste";
+	char wort[] = "Liste";
 	struct node *vor = Head;
-	for(int i = 0; i < (sizeof(wort)/8); i++){
+	for(int i = 0; i < (sizeof(wort)); i++){
+		//printf("durchlauf %d\n",i);
 		vor = InsertAfter((int)wort[i], vor);
 	}
 	vor = Head->Next;
@@ -105,4 +109,18 @@ void printNode(struct node *T){
 void printIndex(int i){
 
 }
-
+/*Tauscht die 2 angegebenen Knoten mit einander(Müssen in der liste vorhanden sein) 
+Bei Fehlschlag gibt es -1 und bei Erfolg 0 zurück.*/
+int switchNodes(struct node *A,struct node *B){
+	return 0;
+}
+void cleanup(){
+	struct node *point = Head;
+	struct node *prev;
+	while(point != point->Next){
+		prev = point;
+		point = point->Next;
+		free(prev);
+	}
+	free(point);
+}
