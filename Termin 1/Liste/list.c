@@ -27,7 +27,7 @@ struct node *Head, *Z;
 int main(int argc, char* argv[]){
 	ListInit();
 	printf("Aufgabe ist es die fehlenden Methoden zu implementieren und sinnvoll per Konsolenausgabe zu testen!\n");
-
+	
 return 0;
 }
 
@@ -45,10 +45,15 @@ void ListInit(){
 	Head->data = -1;
 	Z->data = -2;
 	//Testliste konstruieren
-	char[] wort = "Liste";
+	char wort[5] = "Liste";
 	struct node *vor = Head;
 	for(int i = 0; i < (sizeof(wort)/8); i++){
-		vor = insertAfter((int)wort[i], vor);
+		vor = InsertAfter((int)wort[i], vor);
+	}
+	vor = Head->Next;
+	while(vor != vor->Next){
+		printNode(vor);
+		vor = vor->Next;
 	}
 }
 
@@ -94,7 +99,7 @@ int removeData(int dt){
 }
 //Gibt den Knoten an dem Pointer in der Konsole aus.
 void printNode(struct node *T){
-
+	printf("%c\n",(char)T->data);
 }
 //Gibt einen Knoten mit dem Index in der Konsole aus.
 void printIndex(int i){
