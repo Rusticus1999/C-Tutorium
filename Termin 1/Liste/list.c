@@ -44,6 +44,12 @@ void ListInit(){
 	//Startknoten mit Daten versehen
 	Head->data = -1;
 	Z->data = -2;
+	//Testliste konstruieren
+	char[] wort = "Liste";
+	struct node *vor = Head;
+	for(int i = 0; i < (sizeof(wort)/8); i++){
+		vor = insertAfter((int)wort[i], vor);
+	}
 }
 
 /*
@@ -59,7 +65,12 @@ struct node *InsertIndex(int dt, int i){
 }
 //Fügt einen Konoten mit dem Inhalt dt nach gewünschtem Knoten ein und gibt einen Pointer auf diesen zurück. Bei fehlschlag gibt es einen NULL pointer zuruück.
 struct node *InsertAfter(int dt, struct node *T){
-	return NULL;
+	struct node *neu;
+	neu = (struct node *) malloc(sizeof(*neu));
+	neu->data = dt;
+	neu->Next = T->Next;
+	T->Next = neu;
+	return neu;
 }
 //Gibt die Menge an Inhaltsknoten zurück.
 int getSize(){
