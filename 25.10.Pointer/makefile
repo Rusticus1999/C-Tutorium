@@ -1,4 +1,4 @@
-PROGRAM = basic
+PROGRAM = b2
 SOURCES.c = $(PROGRAM).c
 
 SOURCES = \

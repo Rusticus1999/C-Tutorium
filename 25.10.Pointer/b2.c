@@ -1,7 +1,7 @@
 #include<stdio.h>
-
+#include<stdlib.h>
 void tausche(int*, int*);
-void invertiere(char*);
+void invertiere(char*, int);
 /*
 Aufgabe 1:
 Deklarariere und initialisiere die 2 int variablen a und b mit 1 und 2
@@ -16,10 +16,6 @@ Entwickle erst einen Ansatz. Was könnte Schiefgehen?
 Aufgabe 3:
 Allokiere und räume den Speicher in main um deinen Namen global zu Speichern. Welchen Datentypen braucht dieses Array?
 Schreibe eine Funktion invert die den namen umdreht.
-
-Malloc exkurs:
-	char *name = (char*) malloc(sizeof(char)*4);
-	name[0] = 'a';
 
 Aufgabe 4:
 Schreibe einen Passwortgenerator benutze dazu rand() und int('0').
@@ -41,7 +37,7 @@ Schreibe Funktionen um folgende Funktionalitäten zu implementieren:
 int main(int argc, char* argv[]){
 
 printf("Basic\n");
-
+/*
 int a = 1;
 int b = 2;
 printf("Adressen a %p b %p\n", &a, &b);
@@ -50,10 +46,20 @@ printf("a = %d, b = %d\n", a,b);
 tausche(&a, &b);
 
 printf("a = %d, b = %d\n", a,b);
+*/
 
+char *name = (char*) malloc(4*sizeof(char));
+printf("%s\n", name);
+char namefill[] = "Nico";
+for(int i = 0; i < 4; i++)
+{
+	name[i] = namefill[i];
+}
+printf("%s\n", name);
+invertiere(name, 4);
+printf("%s\n", name);
 
-//char name[4] = "Nico";
-
+free(name);
 return 0;
 }
 
@@ -66,7 +72,12 @@ void tausche(int *pa, int* pb){
 
 }
 
-char[] invertiere(char[] name){
-	
+void invertiere(char* name, int len){
+	char save;
+	for(int i = 0; i < len/2; i++){
+		save = name[i];
+		name[i] = name[len-1-i];
+		name[len-1-i] = save;
 
+	}
 }
