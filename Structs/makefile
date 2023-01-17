@@ -1,4 +1,4 @@
-PROGRAM = test
+PROGRAM = mandel
 SOURCES.c = $(PROGRAM).c
 
 SOURCES = \

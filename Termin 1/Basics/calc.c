@@ -22,9 +22,12 @@ double pi = 3.14159265;
 int main()
 {
 /*
-	In der Main Funktion bitte eine, mit printf erklärte, Abfrage von gewünschter Operation gefolgt von
-	einer benötigten Anzahl an Operanden erfragen mit scanf("%i%i..",&ergebnis).
-	Darauf das Ergebnis mit passendem Datentypen in printf("Ergebnis von .. ist ..",ergebnis)
+	In der Main Funktion bitte eine, mit printf erklärte,
+	Abfrage von gewünschter Operation gefolgt von
+	einer benötigten Anzahl an Operanden erfragen
+	mit scanf("%i%i..",&ergebnis).
+	Darauf das Ergebnis mit passendem Datentypen in
+	printf("Ergebnis von .. ist ..",ergebnis)
 	ausgeben.
 */
 

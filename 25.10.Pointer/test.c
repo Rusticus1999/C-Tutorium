@@ -1,6 +1,8 @@
-#include<stdio.h>
 
-void tausche(int, int);
+#include<stdio.h>
+#include<stdlib.h>
+
+void tausche(int*, int*);
 /*
 Aufgabe 1:
 Deklarariere und initialisiere die 2 int variablen a und b mit 1 und 2
@@ -37,17 +39,22 @@ int main(int argc, char* argv[]){
 
 printf("Basic\n");
 
-tausche(1, 2);
+int a = 10;
+int b = 100;
+printf("a : %d b : %d\n", a, b);
+tausche( &a, &b);
+printf("a : %d b : %d\n", a, b);
+
 
 return 0;
 }
 
-void tausche(int a, int b){
-	printf("a = %d, b = %d\n", a,b);
+void tausche(int *pa, int* pb){
+	printf("a = %d, b = %d\n", *pa,*pb);
 	int c = 0;
-	c = a;
-	a = b;
-	b = c;
-	printf("a = %d, b = %d\n", a,b);
+	c = *pa;
+	*pa = *pb;
+	*pb = c;
+	printf("a = %d, b = %d\n", *pa,*pb);
 
 }

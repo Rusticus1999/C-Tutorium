@@ -1,4 +1,4 @@
-PROGRAM = test
+PROGRAM = sensor
 SOURCES.c = $(PROGRAM).c
 
 SOURCES = \

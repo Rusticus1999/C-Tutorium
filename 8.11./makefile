@@ -1,4 +1,4 @@
-PROGRAM = test
+PROGRAM = pointe_r
 SOURCES.c = $(PROGRAM).c
 
 SOURCES = \

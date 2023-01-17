@@ -1,4 +1,4 @@
-PROGRAM = test
+PROGRAM = switch
 SOURCES.c = $(PROGRAM).c
 
 SOURCES = \

@@ -1,0 +1,153 @@
+Welche Vorteile/Nachteile hat ein Array/Feld gegenüber einer Liste?
+			Pro						Contra
+	Array	Per index zugriff		Größe vordefiniert
+			Eingebaut				Keine Einträge zwischen einfügen
+			Weniger Speicherplatz	Nur ein Datentyp
+			Weniger Rechenleistung	Speicherüberlauf schreibt umliegende daten kaputt
+
+	Listen	Kommutierbar
+			Beliebig erweiterbar
+			Verschiedene Datentypen
+			
+Welche Speicherbereiche gibt es in C und wann werden sie verwendet?
+Stack:Lokaler, Vordefinierter Speicher für Variablen, der in seiner Größe begrenzt ist. Aufgrund von hierachischen aufrufen der Funktionen
+		ergibt sich eine Stapel Struktur.
+Global/Static:Separater Speicherbereich, Ebenso vordefiniert und Begrenzt wie der Stack. Globale Variablend werde außerhalb der Funktionen 
+			definiert und alle funktionen haben zugriff auf sie. Statische veriablen werden nur beim ersten Funktionsaufruf neu definiert,
+			bei allen weiteren Aufrufen wird diese ihren vorherigen Wert wiederverwenden.
+			#Kann eine static variable nach beendigung der Vaterfunktion außerhalb dieser verändert werden?
+Heap:Dynamisch während der Laufzeit veränderbar. Speicherverwaltung vom Betriebssytem. Größe Veränderbar. Für gewöhnlich im Ram.
+Code:Stehen die instruktionen drin. Gibt auch sowas wie goto.
+
+Welche Datentypen gibt es in C und welche Eigenschaften haben diese im Praktikum?
+int:32 bit signed ganze zahl
+float:32 bit gleitkommazahl
+double:64 bit ^^^^
+char: 8 bit ascii formatierte unsigned zahl
+short int: 16 bit int
+long: in der Regel verdoppelt es die anzahl der bits eines datentyps. Viele ausnahmen.
+unsigned: msb ist positiv/kein vorzeichen
+pointer(*):adressvariable mit 64 bit
+
+Aus welchen Schritten besteht der Compilierungsprozess? In welcher Reihenfolge treten diese auf?
+1.Präprozessor: Schnappt sich Befehle die mit # anfangen und macht was damit. Glorifizierte suchen und ersetzen funktion.
+2.Compiler: wandelt quelltext in assembly um.
+3.Assembler: Mach aus dem Assembly code Object Code. Übersetzt alle befehle die er kennt in binärcode, den rest lässt er unverändert.
+4.Linker:Fügt maschinencode der verbleibenden rohtext befehle ein.
+
+Wofür steht volatile und wann benutzt man es?
+Die variable wo volatile vor steht wird nicht weg optimiert wenn sie im programm nicht verändert wird da sie durch äußere Zugriffe wie 
+interrupts und sensordaten geändert wird.
+
+		Variable	Zeiger
+Inhalt	i = 1;		*i = 1;
+Adresse	&i			i
+
+Wieviele Fehler sind in folgender Tabelle bezogen auf int B und int *b?
+		Variable	Zeiger
+Inhalt	*B = 0x5;	B = 0x1;
+Adresse	b			b
+
+3 Fehler
+
+
+In welcher Zeile liegt in folgendem Code ein Fehler vor?
+#include<stdlib.h>
+#include<stdio.h>
+
+struct knoten{
+	int data;
+	struct knoten Next;
+};
+
+struct knoten *head, *tail;
+
+----------------------
+
+#include(stdio.h)
+#include(stdlib.h)
+void tausche(int*, int*);
+void invertiere(int, int);
+
+int main(int argc, char* argv[]){
+
+	char name = (char) malloc(4*sizeof(char));
+	printf("%s\n", name);
+	char namefill[] = "Nico";
+	for(int i = 0; i < 4; i++)
+	{
+		name[i] = namefill[i];
+	}
+	printf("%s\n", name);
+	invertiere(name, 4);
+	printf("%s\n", name);
+
+	return 1;
+}
+
+void tausche(int *pa, int* pb){
+    printf("Adressen a %p b %p\n", pa, pb);
+    int c = 0;
+    c = *pa;
+    *pa = *pb;
+    *pb = c;
+
+}
+
+void invertiere(char* name, int len){
+    char save;
+    for(int i = 0; i < len/2; i++){
+        save = name[i];
+        name[i] = name[len-1-i];
+        name[len-1-i] = save;
+
+    
+}
+
+Nenne die 6 Fehler:
+
+free fehlt in main
+invertiere deklaration hat falschend datentypen im parameter
+falsche klammern für include
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Deklaration von invertiere hat falsche datentypen
+Falsche klammern bei Include
+free(name) fehlt
+malloc wird in char und nicht char* gespeichert
+return fehlercode 1
+bei invertiere fehlt eine }
+
+
+
+
+Bilde das 10 Bit 2er Komplement von -25
+00000011001
+11111100111
+11111111111111111111111111111100111
+
+
+Was ist a und b nach folgendem Code:
+char a = 34;
+char b = 114;
+a = a^b;
+b = a^b;
+a = a^b;
+
+Was ist a nach folgendem Code:
+int a = 741;
+for (int i = 0; i<4; i++){
+	a = (a + i) << (~i|1);
+}
