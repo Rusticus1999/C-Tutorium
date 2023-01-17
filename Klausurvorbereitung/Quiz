@@ -27,6 +27,11 @@ char: 8 bit ascii formatierte unsigned zahl
 short int: 16 bit int
 long: in der Regel verdoppelt es die anzahl der bits eines datentyps. Viele ausnahmen.
 unsigned: msb ist positiv/kein vorzeichen
+#####
+char  a= -1; 11111111
+(unsigned char)a; 255
+
+#####
 pointer(*):adressvariable mit 64 bit
 
 Aus welchen Schritten besteht der Compilierungsprozess? In welcher Reihenfolge treten diese auf?
@@ -64,14 +69,14 @@ struct knoten *head, *tail;
 
 ----------------------
 
-#include(stdio.h)
+#include(stdio.h)#<>
 #include(stdlib.h)
 void tausche(int*, int*);
-void invertiere(int, int);
+void invertiere(int, int);#(char *,int)
 
 int main(int argc, char* argv[]){
 
-	char name = (char) malloc(4*sizeof(char));
+	char name = (char) malloc(4*sizeof(char));#char*
 	printf("%s\n", name);
 	char namefill[] = "Nico";
 	for(int i = 0; i < 4; i++)
@@ -81,8 +86,8 @@ int main(int argc, char* argv[]){
 	printf("%s\n", name);
 	invertiere(name, 4);
 	printf("%s\n", name);
-
-	return 1;
+	#free(name)
+	return 1;#return 0
 }
 
 void tausche(int *pa, int* pb){
@@ -101,7 +106,7 @@ void invertiere(char* name, int len){
         name[i] = name[len-1-i];
         name[len-1-i] = save;
 
-    
+    #}
 }
 
 Nenne die 6 Fehler:
@@ -139,15 +144,53 @@ Bilde das 10 Bit 2er Komplement von -25
 11111111111111111111111111111100111
 
 
+-128	64	32	16	8	4	2	1 signed
+128		64	32	16	8	4	2	1 unsigned
+1		0	0	1	0	1	0	1
+signed -128 +16 +4 +1 = -107
+unsigned 128 +16 +4 +1 = 149
+149 als signed:
+0 1 0 0 1 0 1 0 1
+
+
+111 unsigned 0 1 1 0 1 1 1 1
+-111 signed  1 0 0 1 0 0 0 1
+
 Was ist a und b nach folgendem Code:
-char a = 34;
-char b = 114;
+unsigned char a = 34;
+unsigned char b = 114;
+a = a^b;a wird mit b verschlüsselt und in a gespeichert
+b = a^b;ursprünglich a wird wieder mit b entschlüsselt und in b gespeichert
+a = a^b;das ursprüngliche a, was jetzt in b steht wird benutzt um das ursprüngliche b zu
+entschlüsseln und in a zu speichern
+
+a 00100010
+b 01110010
 a = a^b;
-b = a^b;
+  01010000
+  01110010
+b = a^b; 
+#  00100010
+  01010000
 a = a^b;
+#  01110010
 
 Was ist a nach folgendem Code:
 int a = 741;
 for (int i = 0; i<4; i++){
 	a = (a + i) << (~i|1);
 }
+i=0
+0101110101
+0000000000+
+-----------
+0101110101
+
+000000000
+
+i=1
+i=2
+i=3
+a=0
+000000011
+0
